@@ -7,32 +7,25 @@ class Program
         Console.Write("Enter a percentage grade: ");
         string grade = Console.ReadLine();
         int numGrade = int.Parse(grade);
+        string letterGrade = "F";
         
 
         if (numGrade >= 90)
         {
-            System.Console.WriteLine("You got an A");
-            System.Console.WriteLine("Congrats you passed!");
+            letterGrade = "A";
         }
         else if (numGrade >= 80)
         {
-            System.Console.WriteLine("You got a B");
-            System.Console.WriteLine("Good job! you passed");
+            letterGrade = "B";
         }
         else if (numGrade >= 70)
         {
-            System.Console.WriteLine("You got a C");
-            System.Console.WriteLine("Good job, you passed!!");
+            letterGrade = "C";
         }
         else if (numGrade >= 60)
         {
-            System.Console.WriteLine("You got a D");
-            System.Console.WriteLine("You can do it for sure next time!!");
+            letterGrade = "D";
         }
-        else 
-        {
-            System.Console.WriteLine("You fot an F");
-            System.Console.WriteLine("A little more effort is needed for this class, you got this!");
-        }
+        System.Console.WriteLine($"You got the letter grade: {letterGrade}");
     }
 }
