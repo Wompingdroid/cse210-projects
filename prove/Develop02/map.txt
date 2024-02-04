@@ -1,0 +1,29 @@
+program itterates through 5 promps. each promp has something it does
+1. write
+2. display
+3. load
+4. save
+5. quit
+
+the main function will run on a while open loop that when you input quit will close the loop.
+
+1. write will start with getting the date and a random question promp from a list of questions. It will then take user input for the journal entery and save to a string.
+2. this will display the string of the journal entrys
+3. load will copy over text from a user inputed document onto the journal string
+4. this will save and overwrite a user inputed document
+5. will close the main loop
+
+I need at least 2 classes
+
+class 1 will be the journal class
+> does something with list of entrys ...
+> can load over other file with load
+> can save a file by asking for a file name then saving it
+> can display journal and previous entrys
+
+
+class 2 will be the entrys
+> string with date
+> contains the list of questions
+> function that gets a random number
+> takes user input
