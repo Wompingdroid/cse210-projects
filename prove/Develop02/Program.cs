@@ -47,11 +47,11 @@ class Program
             }
             else if (userInput == "3") //load
             {
-
+                journal.Load();
             }
             else if (userInput == "4") //save
             {
-
+                journal.Save();
             }
             else if (userInput == "5") //quit
             {
