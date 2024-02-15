@@ -1,0 +1,7 @@
+so  Ive got the word class, Ive got the reference class and Ive got the scripture class.
+
+I want the word class to have a hidden value and be able to make things hidden
+I want reference to contain a scripture, values for that would be the title and scripture
+I want the scripture class to pull the scripture from reference to set is a list.
+
+program class is easy, I make a loop to hide words when an enter is inputed.
