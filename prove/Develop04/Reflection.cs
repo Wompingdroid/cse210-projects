@@ -25,7 +25,7 @@ private List<string> reflectionQuestions = new List<string> {
 "How can you keep this experience in mind in the future?"
 };
 
-public void GetRandomPrompt()
+private void GetRandomPrompt()
 {
     Random rnd = new Random();
     int randomNum = rnd.Next(0,prompts.Count()+1);
@@ -33,19 +33,30 @@ public void GetRandomPrompt()
     System.Console.WriteLine(prompts[randomNum]);
 }
 
-public void GetQuestion()
+private void GetQuestions()
 {
     DateTime startTime = DateTime.Now;
     DateTime futureTime = startTime.AddSeconds(duration);
     while (DateTime.Now < futureTime)
     {
     Random rnd = new Random();
-    int randomNum = rnd.Next(0,reflectionQuestions.Count()+1);
+    int randomNum = rnd.Next(0,reflectionQuestions.Count());
     System.Console.WriteLine(reflectionQuestions[randomNum]);
     Animation();
     }
 }
 
-
+public void RunReflection() 
+{
+    Countdown();
+    System.Console.WriteLine("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+    DisplayDuration();
+    GetReady();
+    GetRandomPrompt();
+    Animation();
+    GetQuestions();
+    FinishMessage();
+    
+}
 
 }
