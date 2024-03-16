@@ -35,7 +35,7 @@ class SimpleGoal : Goal
             check = "✓";
         } 
         else{
-            check = "X";
+            check = " ";
         }
         System.Console.WriteLine($"{name}, {description}, {pointsToComplete}, [{check}]");   
     }
