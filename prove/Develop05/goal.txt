@@ -1,3 +1,4 @@
-SimpleGoal::S::simple::10::False
+133
+SimpleGoal::S::simple::10::True
 EternalGoal::E::eternal::1
 ChecklistGoal::C::Check::100::False::1000::0::3::False

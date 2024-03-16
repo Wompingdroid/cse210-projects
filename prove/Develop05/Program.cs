@@ -26,7 +26,7 @@ class Program
 
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
-                
+                outputFile.WriteLine(currentUserScore);
                 foreach (Goal goal in goals)
                 {
                     if (goal.GetType() == "EternalGoal")
@@ -93,7 +93,7 @@ class Program
                 }
                 else
                 {
-                    System.Console.WriteLine("Something went wrong with typing the child");
+                    SetCurrentUserScore(int.Parse(parts[0]));
                 }
                 
 
