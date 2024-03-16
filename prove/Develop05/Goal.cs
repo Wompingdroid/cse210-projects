@@ -2,6 +2,9 @@ namespace Develop05;
 
 abstract class Goal
 {
+    protected string type;
+    public abstract string GetType();
+    
     protected string name;
 
     abstract public int AddScore();
@@ -9,6 +12,9 @@ abstract class Goal
         return name;
     }
     protected string description;
+    public string GetDescription(){
+        return description;
+    }
     protected bool isComplete;
     public bool GetIsComplete(){
         return isComplete;
@@ -19,6 +25,8 @@ abstract class Goal
     }
 
     public abstract void CheckIfComplete();
+
+    public abstract string WriteOut();
 
     public abstract void DisplayGoal();
 

@@ -22,17 +22,29 @@ class Program
         void SaveGoal()
         {
             System.Console.WriteLine("Please give the file name of your file to save it.");
-            System.Console.WriteLine("> ");
             string fileName = System.Console.ReadLine();
 
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
-                // You can add text to the file with the WriteLine method
-                //outputFile.WriteLine("This will be the first line in the file.");
                 
-                // You can use the $ and include variables just like with Console.WriteLine
-                //string color = "Blue";
-                //outputFile.WriteLine($"My favorite color is {color}");
+                foreach (Goal goal in goals)
+                {
+                    if (goal.GetType() == "EternalGoal")
+                    {
+                        outputFile.WriteLine(goal.WriteOut());
+                    }
+                    else if (goal.GetType() == "SimpleGoal")
+                    {
+                        outputFile.WriteLine(goal.WriteOut());
+                    }
+                    else if (goal.GetType() == "ChecklistGoal")
+                    {
+                        outputFile.WriteLine(goal.WriteOut());
+                    }
+                    else{
+                        System.Console.WriteLine("Something went wrong with writing the files");
+                    }
+                }
             }
         }
 
@@ -41,15 +53,50 @@ class Program
             System.Console.WriteLine("Please enter the name of the file you wish to retrieve.");
             System.Console.Write("> ");
             string getFileName = System.Console.ReadLine();
-            string filename = getFileName;
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = System.IO.File.ReadAllLines(getFileName);
 
             foreach (string line in lines)
             {
                 string[] parts = line.Split("::");
+                if (parts[0] == "EternalGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    string pointsToComplete = parts[3];
 
-                //string firstName = parts[0];
-                //string lastName = parts[1];
+                    EternalGoal newEternalGoal = new EternalGoal(name, description, int.Parse(pointsToComplete));
+                    goals.Add(newEternalGoal);
+                }
+                else if (parts[0] == "SimpleGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    string pointsToComplete = parts[3];
+                    string check = parts[4];
+
+                    SimpleGoal newSimpleGoal = new SimpleGoal(name, description, int.Parse(pointsToComplete), bool.Parse(check));
+                    goals.Add(newSimpleGoal);
+                }
+                else if (parts[0] == "ChecklistGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    string pointsToComplete = parts[3];
+                    string check = parts[4];
+                    string bonusPoints = parts[5];
+                    string timesToComplete = parts[6];
+                    string timesAlreadyCompleted = parts[7];
+                    string addedBonus = parts[8];
+
+                    ChecklistGoal newChecklistGoal = new ChecklistGoal(name, description, int.Parse(pointsToComplete), bool.Parse(check), int.Parse(bonusPoints), int.Parse(timesAlreadyCompleted), int.Parse(timesToComplete), bool.Parse(addedBonus));
+                    goals.Add(newChecklistGoal);
+                }
+                else
+                {
+                    System.Console.WriteLine("Something went wrong with typing the child");
+                }
+                
+
             }
         }
 

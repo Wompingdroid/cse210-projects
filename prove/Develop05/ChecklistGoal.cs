@@ -4,6 +4,12 @@ namespace Develop05;
 
 class ChecklistGoal : Goal
 {
+    public override string GetType()
+    {
+        type = "ChecklistGoal";
+        return type;
+    }
+
 public override int AddScore()
     {
         if (timesAlreadyCompleted +1 == timesToComplete && addedBonus == false){
@@ -27,6 +33,11 @@ public override int AddScore()
             isComplete = true;
         }
         
+    }
+
+    public override string WriteOut()
+    {
+        return $"{GetType()}::{GetName()}::{GetDescription()}::{GetPointsToComplete()}::{GetIsComplete()}::{GetBonusPoints()}::{GetTimesAlreadyCompleted()}::{timesToComplete}::{addedBonus}";
     }
 
     public override void DisplayGoal()

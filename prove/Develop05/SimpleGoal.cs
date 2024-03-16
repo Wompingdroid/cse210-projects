@@ -2,12 +2,22 @@ namespace Develop05;
 
 class SimpleGoal : Goal
 {
+    public override string GetType()
+    {
+        type = "SimpleGoal";
+        return type;
+    }
     public override void CheckIfComplete()
     {
         isComplete = true;
     }
 
-public override int AddScore()
+    public override string WriteOut()
+    {
+        return $"{GetType()}::{GetName()}::{GetDescription()}::{GetPointsToComplete()}::{GetIsComplete()}";
+    }
+
+    public override int AddScore()
     {
         if (isComplete == false){
             return pointsToComplete;
